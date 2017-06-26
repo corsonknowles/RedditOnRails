@@ -1,0 +1,19 @@
+
+<p> Title: 
+<%= @post.title %>
+</p>
+<p> Post:
+<%= @post.content %>
+</p>
+<p> Link URL (if applicable)
+<%= @post.url if @post.url %>
+</p>
+<p> Author:
+<%= @post.author.username %>
+</p>
+<p> Created at:
+<%= @post.created_at %>
+</p>
+<p> Updated at:
+<%= @post.updated_at %>
+</p>

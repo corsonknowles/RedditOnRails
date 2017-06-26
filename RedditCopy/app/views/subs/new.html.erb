@@ -1,0 +1,16 @@
+<h1>Make a sub. Be a moderator. Have power. Be petty</h1>
+
+
+<form class="" action="<%= subs_url %>" method="post">
+  <%= auth_token %>
+
+  <label for="">Title
+    <input type="text" name="sub[title]" value="">
+  </label>
+
+  <label for="">Description
+    <textarea name="sub[description]" rows="8" cols="80"></textarea>
+  </label>
+
+  <input type="submit" name="" value="Create Sub">
+</form>

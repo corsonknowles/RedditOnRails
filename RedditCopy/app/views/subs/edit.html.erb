@@ -1,0 +1,19 @@
+<h1>Improve your sub. Always be iterating</h1>
+
+
+<form class="" action="<%= sub_url %>" method="post">
+  <input type="hidden" name="_method" value="PATCH">
+  <%= auth_token %>
+
+  <label for="">Title
+    <input type="text" name="sub[title]" value="<%= @sub.title %>">
+
+
+  </label>
+
+  <label for="">Description
+    <textarea name="sub[description]" rows="8" cols="80"><%= @sub.description %></textarea>
+  </label>
+
+  <input type="submit" name="" value="Update Sub">
+</form>

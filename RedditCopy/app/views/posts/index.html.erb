@@ -1,0 +1,12 @@
+<h1>all the subs</h1>
+<ul>
+
+<% Sub.all.each do |sub| %>
+<li>
+  <%= link_to "#{sub.title}", sub_url(sub.id) %>
+</li>
+<% end %>
+</ul>
+
+<%= link_to 'New Sub', new_sub_url %>
+<%= link_to 'Submit Post', new_post_url %>
