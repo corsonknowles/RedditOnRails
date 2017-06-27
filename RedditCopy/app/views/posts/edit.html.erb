@@ -1,2 +1,28 @@
-<h1>Posts#edit</h1>
-<p>Find me in app/views/posts/edit.html.erb</p>
+<h1>Posts Edot</h1>
+
+
+<form class="" action="<%= post_url %>" method="post">
+  <input type="hidden" name="_method" value="PATCH">
+  <%= auth_token %>
+
+  <label for="">Title
+    <input type="text" name="post[title]" value="<%= @post.title if @post %>">
+  </label>
+
+  <label for="">URL
+    <input type="text" name="post[url]" value="<%= @post.url if @post %>">
+  </label>
+
+  <label for="">Content
+    <textarea name="post[content]" rows="8" cols="80"><%= @post.content if @post %></textarea>
+  </label>
+
+  <% Sub.all.each do |sub| %>
+  <label for=""><%= sub.title %>
+   <input type="checkbox" name="post[sub_ids][]" value="<%= sub.id %>">
+  </label>
+  <% end %>
+
+  <input type="submit" name="" value="Update Post">
+
+</form>

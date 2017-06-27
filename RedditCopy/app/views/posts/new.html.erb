@@ -18,7 +18,7 @@
 
   <% Sub.all.each do |sub| %>
   <label for=""><%= sub.title %>
-    <input type="checkbox" name="post[sub_ids][]" value="<%= sub.id %>">
+   <input type="checkbox" name="post[sub_ids][]" value="<%= sub.id %>">
   </label>
   <% end %>
 

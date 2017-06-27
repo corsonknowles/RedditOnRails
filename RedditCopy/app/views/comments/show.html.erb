@@ -1,0 +1,26 @@
+<h1>Comments</h1>
+
+<%= @comment.content %>
+<%= @comment.author.username %>
+
+<p>Replies</p>
+<ul>
+<% @comment.children.each do |child| %>
+<li><%= link_to "#{child.content}", comment_url(child.id) %>
+by <%= child.author.username %> </li>
+
+<% end %>
+</ul>
+
+
+<form class="" action="<%= comments_url %>" method="post">
+  <%= auth_token %>
+  <input type="hidden" name="comment[post_id]" value="<%= @comment.post.id %>">
+  <input type="hidden" name="comment[parent_id]" value="<%= @comment.id %>">
+
+  <label for="">Content
+    <textarea name="comment[content]" rows="8" cols="80"></textarea>
+  </label>
+
+  <input type="submit" name="" value="COMMIT">
+</form>

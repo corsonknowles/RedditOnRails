@@ -18,7 +18,6 @@ class PostsController < ApplicationController
     if @post.save
       redirect_to post_url(@post)
     else
-      debugger
       flash.now[:errors] = @post.errors.full_messages
       render :new
     end
@@ -36,6 +35,13 @@ class PostsController < ApplicationController
   end
 
   def update
+    @post = current_user.posts.find(params[:id])
+    if @post.update_attributes(post_params)
+      redirect_to post_url(@post)
+    else
+      flash[:errors] = ['wrong']
+      render :edit
+    end
   end
 
   def new

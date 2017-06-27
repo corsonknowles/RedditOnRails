@@ -18,6 +18,12 @@ class User < ActiveRecord::Base
     foreign_key: :author_id,
     class_name: :Post
 
+
+    has_many :comments,
+      primary_key: :id,
+      foreign_key: :author_id,
+      class_name: :Comment
+
   def ensure_session_token
     self.session_token ||= SecureRandom.urlsafe_base64
   end

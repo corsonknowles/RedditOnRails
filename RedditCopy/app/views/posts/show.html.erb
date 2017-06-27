@@ -1,5 +1,5 @@
 
-<p> Title: 
+<p> Title:
 <%= @post.title %>
 </p>
 <p> Post:
@@ -17,3 +17,25 @@
 <p> Updated at:
 <%= @post.updated_at %>
 </p>
+
+<p><%= link_to "Edit this post", edit_post_url %></p>
+
+
+<form action="<%= comments_url %>" method="post">
+  <%= auth_token %>
+  <input type="hidden" name="comment[post_id]" value="<%= @post.id %>">
+
+  <label>Content
+    <textarea name="comment[content]" rows="8" cols="80"></textarea>
+  </label>
+
+  <input type="submit" name="" value="COMMIT">
+</form>
+
+
+<p>
+<%= link_to "Comment on this post", new_comment_url %>
+</p>
+
+
+<%= render('shared/comment', com_id: nil, post: @post)  %>

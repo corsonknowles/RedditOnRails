@@ -1,0 +1,7 @@
+
+
+  <% post.comments_by_parent_id[com_id].each do |com| %>
+  <%= com.content %>
+  <%= com.author.username %>
+  <%= render('shared/comment',com_id: com.id, post: post) %>
+  <% end %>
